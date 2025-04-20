@@ -17,6 +17,10 @@ app.get('/api', (req, res) => {
   res.json({"msg": "Hello world"});
 });
 
+app.get('*.html', function(req, res){
+  res.status(404).sendFile(path.join(__dirname + '/public/404.html'));
+});
+
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`);
 })
